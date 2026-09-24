@@ -20,8 +20,7 @@ src/
 ├── types.ts             # TypeScript types for that content
 ├── components/          # one component per section, plus shared pieces
 │   ├── Header.tsx       # sticky nav
-│   ├── Hero.tsx         # intro + VerdictCard
-│   ├── VerdictCard.tsx  # animated "hidden tests passing" illustration
+│   ├── Hero.tsx         # intro, links and call to action
 │   ├── Experience.tsx
 │   ├── Projects.tsx     # maps projects to ProjectCard
 │   ├── ProjectCard.tsx  # uses SystemFlow and ApiTable
