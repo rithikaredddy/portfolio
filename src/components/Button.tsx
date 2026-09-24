@@ -18,8 +18,13 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function Button({ variant = "primary", className = "", children, ...rest }: ButtonProps) {
   return (
-    
-      className={`inline-flex items-center justify-center gap-2 rounded-[10px] border-[1.5px] px-[18px] py-[11px] text-[15.5px] font-semibold no-underline transition hover:-translate-y-px ${variants[variant]} ${className}`}
+    <a
+      className={[
+        "inline-flex items-center justify-center gap-2 rounded-[10px] border-[1.5px] px-[18px] py-[11px]",
+        "text-[15.5px] font-semibold no-underline transition hover:-translate-y-px",
+        variants[variant],
+        className,
+      ].join(" ")}
       {...rest}
     >
       {children}
