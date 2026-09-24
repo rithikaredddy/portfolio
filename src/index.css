@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --color-ink: #1a2233;
+  --color-body: #2e3749;
+  --color-muted: #586174;
+  --color-line: #e3e6ee;
+  --color-arrow: #aab2c2;
+  --color-wash: #f7f8fc;
+
+  --color-cobalt: #2f5bea;
+  --color-cobalt-soft: #e9effe;
+  --color-mint: #0e8c68;
+  --color-mint-soft: #e3f6ee;
+  --color-mint-edge: #cbebdd;
+  --color-berry: #c8356b;
+  --color-berry-soft: #fdeaf1;
+  --color-berry-edge: #f6d2df;
+  --color-sun: #b77a00;
+  --color-sun-soft: #fff4d6;
+  --color-sun-deep: #7a5200;
+  --color-violet: #6b4bd8;
+  --color-violet-soft: #efeafd;
+}
+
+:root {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: 72px;
+}
+
+body {
+  @apply bg-white font-sans text-[17px] leading-relaxed text-ink antialiased;
+  overflow-x: hidden;
+}
+
+a:focus-visible,
+button:focus-visible {
+  @apply rounded outline-[2.5px] outline-offset-[3px] outline-cobalt outline-solid;
+}
+
+section:focus {
+  outline: none;
+}
+
+/* Soft colored light behind the hero */
+.hero-glow {
+  background:
+    radial-gradient(38% 55% at 90% 18%, #e2d9fc 0%, transparent 70%),
+    radial-gradient(34% 50% at 68% 92%, #cff0e2 0%, transparent 70%),
+    radial-gradient(30% 45% at 4% 6%, #ffebb8 0%, transparent 70%),
+    radial-gradient(25% 35% at 45% 0%, #fbdde8 0%, transparent 70%);
+}
