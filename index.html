@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anumandla Rithika</title>
+<meta name="description" content="Anumandla Rithika, final-year CSE (Data Science) student at SR University. Full-stack projects with live demos and source.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23234B8C'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'>AR</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EDF0EA;
+    --sheet: #F8F9F6;
+    --ink: #1B2430;
+    --muted: #5A6470;
+    --line: #CBD2C6;
+    --pen: #234B8C;
+    --get: #3C6E47;
+    --post: #234B8C;
+    --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13181E; --sheet: #1A2028; --ink: #E3E7E0; --muted: #9AA3AD;
+      --line: #2E3843; --pen: #8DB0EC; --get: #8CC79A; --post: #8DB0EC;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13181E; --sheet: #1A2028; --ink: #E3E7E0; --muted: #9AA3AD;
+    --line: #2E3843; --pen: #8DB0EC; --get: #8CC79A; --post: #8DB0EC;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--pen); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  section.block:focus { outline: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--pen); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  /* Top */
+  header.top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 28px 0 0; font-size: 15px; gap: 16px; flex-wrap: wrap;
+  }
+  header.top .me { font-weight: 700; }
+  header.top nav { display: flex; gap: 22px; }
+  header.top nav a { color: var(--ink); text-decoration: none; }
+  header.top nav a:hover { color: var(--pen); }
+
+  /* Intro */
+  .intro { padding: 96px 0 72px; max-width: 760px; }
+  .intro h1 {
+    font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.03em;
+    font-weight: 800; margin: 0 0 28px;
+  }
+  .intro p { font-size: 20px; line-height: 1.55; margin: 0 0 16px; max-width: 620px; color: var(--ink); }
+  .intro .links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 16px; }
+
+  /* Sections */
+  section.block {
+    scroll-margin-top: 16px;
+    display: grid; grid-template-columns: 180px 1fr; gap: 40px;
+    padding: 56px 0; border-top: 1px solid var(--line);
+  }
+  section.block > h2 {
+    font-size: 17px; font-weight: 700; margin: 0; padding-top: 4px; color: var(--muted);
+  }
+
+  /* Projects */
+  .project { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 34px 36px; }
+  .project + .project { margin-top: 28px; }
+  .project h3 { font-size: 30px; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 6px; font-weight: 800; }
+  .project .stack { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
+  .project p { margin: 0 0 14px; max-width: 64ch; }
+  .project .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 22px 0 30px; }
+  .btn {
+    display: inline-block; padding: 9px 16px; border-radius: 6px; font-size: 15px; font-weight: 500;
+    text-decoration: none; border: 1px solid var(--pen);
+  }
+  .btn.solid { background: var(--pen); color: var(--sheet); }
+  .btn.solid:hover { filter: brightness(1.1); }
+  .btn.plain { color: var(--pen); }
+  .btn.plain:hover { background: color-mix(in srgb, var(--pen) 8%, transparent); }
+
+  .project h4 { font-size: 16px; margin: 30px 0 12px; font-weight: 700; }
+
+  /* Flow diagram */
+  .flow { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding-bottom: 4px; }
+  .flow .step {
+    flex: 1 0 128px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
+    background: var(--paper); font-size: 14px; line-height: 1.4;
+  }
+  .flow .step b { display: block; font-size: 14.5px; margin-bottom: 2px; }
+  .flow .step span { color: var(--muted); }
+  .flow .join { flex: 0 0 22px; position: relative; }
+  .flow .join::before {
+    content: ""; position: absolute; left: 3px; right: 3px; top: 50%; border-top: 1.5px solid var(--muted);
+  }
+  .flow .join::after {
+    content: ""; position: absolute; right: 3px; top: calc(50% - 4px);
+    border-left: 6px solid var(--muted); border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  }
+  .flow .step.key { border-color: var(--pen); }
+
+  /* Endpoints */
+  .api { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .api-scroll { overflow-x: auto; }
+  .api table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 520px; }
+  .api td { padding: 9px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+  .api tr:first-child td { border-top: 0; }
+  .api td.m { font-family: var(--mono); font-weight: 500; font-size: 13px; width: 58px; padding-right: 0; }
+  .api td.m.get { color: var(--get); }
+  .api td.m.post { color: var(--post); }
+  .api td.p { font-family: var(--mono); font-size: 13.5px; white-space: nowrap; }
+  .api td.d { color: var(--muted); }
+  .api .auth { font-size: 12.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; margin-left: 6px; white-space: nowrap; }
+
+  .next { margin: 0; padding-left: 20px; }
+  .next li { margin-bottom: 4px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px 40px; }
+  .skills h3 { font-size: 16px; margin: 0 0 6px; }
+  .skills p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* Plain rows */
+  .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .row + .row { margin-top: 22px; }
+  .row h3 { font-size: 19px; margin: 0; }
+  .row .when { color: var(--muted); font-size: 15px; white-space: nowrap; }
+  .row p { margin: 4px 0 0; max-width: 62ch; color: var(--muted); flex-basis: 100%; }
+
+  .contact p { font-size: 20px; margin: 0 0 18px; max-width: 34ch; }
+  .contact .mail { font-size: 22px; font-weight: 700; }
+  .contact .links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 22px; }
+
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    .intro { padding: 64px 0 48px; }
+    .intro p { font-size: 18px; }
+    section.block { grid-template-columns: 1fr; gap: 18px; padding: 44px 0; }
+    .project { padding: 24px 20px; }
+    .project h3 { font-size: 25px; }
+    header.top nav { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="me">Anumandla Rithika</span>
+    <nav aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <h1>I build web apps end to end, and I care most about what happens behind the API.</h1>
+    <p>I'm Rithika, a final-year B.Tech student in Computer Science (Data Science) at SR University, Warangal. I recently finished an internship as a DevCon Associate at Naxrita, where I earned the SAP Certified Back-End Developer (ABAP Cloud) certification.</p>
+    <p>On my own I've built two full-stack projects: an online judge that runs submitted code inside Docker containers, and a movie recommender that serves ML models through a REST API. Both are live, and the source for both is on GitHub.</p>
+    <div class="links">
+      <a href="https://github.com/rithikaredddy">GitHub</a>
+      <a href="https://www.linkedin.com/in/anumandla-rithika-514697390/">LinkedIn</a>
+      <a href="https://leetcode.com/u/AnumandlaRithika/">LeetCode</a>
+      <a href="mailto:rithikaanumandla5@gmail.com">rithikaanumandla5@gmail.com</a>
+    </div>
+  </div>
+
+  <section class="block" id="experience">
+    <h2>Experience</h2>
+    <div>
+      <div class="row">
+        <h3>DevCon Associate (Intern), Naxrita</h3>
+        <span class="when">2026</span>
+        <p>Part of the EMAX DevCon Campus Edition program run by Emax Technologies with Naxrita. Built back-end skills on SAP's cloud stack: ABAP and ABAP Objects, CDS views for data modeling, and the RESTful Application Programming model (RAP) for exposing business data as services, working in Eclipse ADT.</p>
+        <p>Completed the program with the SAP Certified Back-End Developer (ABAP Cloud) certification. <a href="https://www.credly.com/badges/1eafeba6-16f9-4674-a96c-db376d0b99a2">View credential</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <h2>Projects</h2>
+    <div>
+
+      <article class="project">
+        <h3>Online Judge Platform</h3>
+        <p class="stack">React 18, Monaco Editor, Node.js, Express, MongoDB, Docker, JWT</p>
+        <p>A small LeetCode-style site. You sign up, pick a problem, write a solution in Python, C++ or Java in the browser, and get a verdict: Accepted, Wrong Answer, Time Limit Exceeded or Runtime Error.</p>
+        <p>The interesting part is the backend. Running code that strangers type into a text box is risky, so every submission runs in its own Docker container built for that language, with a time limit. The output is checked against hidden test cases, and the result is saved so it shows up in your history, your solved count and the global leaderboard.</p>
+        <div class="actions">
+          <a class="btn solid" href="https://online-judge-platform-pi.vercel.app">Open live demo</a>
+          <a class="btn plain" href="https://github.com/rithikaredddy/online-judge-platform">View source</a>
+        </div>
+
+        <h4>How a submission moves through the system</h4>
+        <div class="flow" role="list">
+          <div class="step" role="listitem"><b>Editor</b><span>Monaco in React sends code + language</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>Express API</b><span>JWT check, loads the problem</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step key" role="listitem"><b>Docker runner</b><span>Fresh container per language, time limit enforced</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>Judge</b><span>Output vs hidden tests gives the verdict</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>MongoDB</b><span>Submission, stats, leaderboard</span></div>
+        </div>
+
+        <h4>API</h4>
+        <div class="api"><div class="api-scroll">
+          <table>
+            <tr><td class="m post">POST</td><td class="p">/api/auth/register</td><td class="d">Create an account</td></tr>
+            <tr><td class="m post">POST</td><td class="p">/api/auth/login</td><td class="d">Log in and receive a JWT</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/api/problems</td><td class="d">List all problems</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/api/problems/:id</td><td class="d">One problem with its sample cases</td></tr>
+            <tr><td class="m post">POST</td><td class="p">/api/submissions</td><td class="d">Submit code and get a verdict <span class="auth">login</span></td></tr>
+            <tr><td class="m get">GET</td><td class="p">/api/submissions/me</td><td class="d">Your submission history <span class="auth">login</span></td></tr>
+            <tr><td class="m get">GET</td><td class="p">/api/leaderboard</td><td class="d">Top users by problems solved</td></tr>
+          </table>
+        </div></div>
+
+        <h4>What I'd add next</h4>
+        <ul class="next">
+          <li>Timed contest mode</li>
+          <li>An admin panel so problems can be added without editing JSON files</li>
+          <li>More languages: JavaScript, Go, Rust</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <h3>Movie Recommendation Engine</h3>
+        <p class="stack">Next.js 14, Tailwind CSS, FastAPI, MongoDB (Motor), scikit-learn, Surprise, JWT</p>
+        <p>A movie site that learns what you like. You search, open a movie and rate it from one to five stars, and the recommendations on your profile change as you rate more.</p>
+        <p>It combines two approaches. Content-based filtering (TF-IDF on genre, cast and keywords, compared with cosine similarity) answers "more like this movie". Collaborative filtering (SVD matrix factorization) answers "people who rate like you also liked". The default feed is a weighted blend of both. The models are trained on the MovieLens 100K dataset: 100,000 ratings from 943 users on 1,682 movies.</p>
+        <div class="actions">
+          <a class="btn solid" href="https://recommendation-engine-lyart.vercel.app/">Open live demo</a>
+          <a class="btn plain" href="https://github.com/rithikaredddy/recommendation-engine">View source</a>
+        </div>
+
+        <h4>How a recommendation is built</h4>
+        <div class="flow" role="list">
+          <div class="step" role="listitem"><b>Next.js</b><span>Asks for your feed</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>FastAPI</b><span>JWT check, loads your ratings</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>Content model</b><span>TF-IDF + cosine similarity</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step" role="listitem"><b>Collaborative model</b><span>SVD on the ratings matrix</span></div>
+          <div class="join" aria-hidden="true"></div>
+          <div class="step key" role="listitem"><b>Hybrid</b><span>Weighted blend, ranked list back to the UI</span></div>
+        </div>
+
+        <h4>API</h4>
+        <div class="api"><div class="api-scroll">
+          <table>
+            <tr><td class="m post">POST</td><td class="p">/auth/register</td><td class="d">Create an account</td></tr>
+            <tr><td class="m post">POST</td><td class="p">/auth/login</td><td class="d">Log in and receive a JWT</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/movies/trending</td><td class="d">Trending movies for the home page</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/movies/search?q=</td><td class="d">Search by title</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/movies/{movie_id}</td><td class="d">Movie details</td></tr>
+            <tr><td class="m post">POST</td><td class="p">/movies/{movie_id}/rate</td><td class="d">Rate a movie from 1 to 5 <span class="auth">login</span></td></tr>
+            <tr><td class="m get">GET</td><td class="p">/recommendations/content/{movie_id}</td><td class="d">Movies similar to this one</td></tr>
+            <tr><td class="m get">GET</td><td class="p">/recommendations/collaborative</td><td class="d">Based on users like you <span class="auth">login</span></td></tr>
+            <tr><td class="m get">GET</td><td class="p">/recommendations/hybrid</td><td class="d">Your default blended feed <span class="auth">login</span></td></tr>
+          </table>
+        </div></div>
+
+        <h4>What I'd add next</h4>
+        <ul class="next">
+          <li>Update recommendations immediately after a new rating instead of on the next load</li>
+          <li>Cache recommendation results in Redis</li>
+          <li>An A/B comparison of content-based vs collaborative results</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Backend</h3>
+        <p>Node.js, Express, FastAPI, Spring Boot, Flask, Django, REST API design and documentation, JWT auth</p>
+      </div>
+      <div>
+        <h3>Frontend</h3>
+        <p>React, Next.js, Tailwind CSS, JavaScript, HTML, CSS</p>
+      </div>
+      <div>
+        <h3>Databases</h3>
+        <p>MySQL, MongoDB, Oracle, SQL, query indexing, Redis (familiar)</p>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <p>JavaScript, Java, Python, C, C++, SQL, TypeScript (learning)</p>
+      </div>
+      <div>
+        <h3>DevOps and tools</h3>
+        <p>Git, GitHub, Docker, Kubernetes (basics), CI/CD (basics), Vercel, Render</p>
+      </div>
+      <div>
+        <h3>Testing</h3>
+        <p>JUnit 5, Mockito, Playwright, test-driven development</p>
+      </div>
+      <div>
+        <h3>SAP</h3>
+        <p>ABAP, ABAP Objects, CDS views, RAP, Eclipse ADT</p>
+      </div>
+      <div>
+        <h3>ML and data</h3>
+        <p>TensorFlow, scikit-learn, Pandas, NumPy, Tableau</p>
+      </div>
+      <div>
+        <h3>Foundations</h3>
+        <p>Data structures and algorithms, OOP, design patterns, DBMS, operating systems, computer networks, Agile (Scrum)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Certifications and education</h2>
+    <div>
+      <div class="row">
+        <h3>SAP Certified Back-End Developer, ABAP Cloud</h3>
+        <span class="when">2026</span>
+        <p>Issued by SAP. <a href="https://www.credly.com/badges/1eafeba6-16f9-4674-a96c-db376d0b99a2">Verify on Credly</a></p>
+      </div>
+      <div class="row">
+        <h3>Amazon ML Summer School</h3>
+        <span class="when">Jul 2026 to now</span>
+        <p>Selected participant. Sessions led by Amazon scientists on supervised learning, deep learning, generative AI and LLMs, reinforcement learning and causal inference.</p>
+      </div>
+      <div class="row">
+        <h3>B.Tech, CSE (Data Science), SR University</h3>
+        <span class="when">2023 to 2027</span>
+        <p>CGPA 8.8 / 10. 200+ problems solved on LeetCode alongside coursework in DSA, operating systems, DBMS and networks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <h2>Contact</h2>
+    <div>
+      <p>I'm looking for a full-stack internship where I can ship real features. Email is the fastest way to reach me.</p>
+      <a class="mail" href="mailto:rithikaanumandla5@gmail.com">rithikaanumandla5@gmail.com</a>
+      <div class="links">
+        <a href="https://github.com/rithikaredddy">GitHub</a>
+        <a href="https://www.linkedin.com/in/anumandla-rithika-514697390/">LinkedIn</a>
+        <a href="https://leetcode.com/u/AnumandlaRithika/">LeetCode</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Anumandla Rithika</footer>
+</div>
+<script>
+  // Scroll to sections with JavaScript instead of relying on #hash navigation,
+  // so the nav works inside embedded previews as well as on the live site.
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    });
+  });
+</script>
+</body>
+</html>
